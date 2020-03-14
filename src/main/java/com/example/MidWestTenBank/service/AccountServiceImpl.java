@@ -42,12 +42,14 @@ public class AccountServiceImpl implements AccountService {
 		List <Account> accounts = accountRepo.findAll();
 		
 		Double total = 0.00;
+		Double loanTotal = 0.00;
 		
 		for(Account account : accounts) {
 			
+			
 			if(account.getAccountType().getAccountTypeName().equalsIgnoreCase("Loan")) {
 				
-				total += 0;
+				loanTotal += account.getBalance();
 				
 			}else
 			
@@ -55,6 +57,7 @@ public class AccountServiceImpl implements AccountService {
 			
 		}
 		
+		total = total - loanTotal;
 		return total;
 	}
 
