@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="O. Kalu">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <title>account form</title>
+</head>
+<body>
+<div class = "container">
+    <h3> New Customer Registration Form  </h3>
+
+    <form th:action="@{/api/newaccount}"  th:object="${newAccount}" method="post">
+
+        <div class="form-group">
+			<!-- th:text="${(account.customer.customerNumber)  + ' - ' + (account.customer.firstName) + ' ' + (account.customer.lastName) }"  -->
+            <label for="StudentNumber">Customer Number</label>
+            <!-- <input type="text" class="form-control" id="StudentNumber" placeholder=" required" th:field="*{customerNumber}"  >
+            <label for="supplier">Type of Account </label> -->
+       
+                <select id="StudentNumber" th:field="*{customer}"  class="form-control">
+                    <option th:each="customer: ${customers}" th:value="${customer.customerId}" th:text="${(customer.customerNumber)  + ' - ' + (customer.firstName) + ' ' + (customer.lastName) }"></option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label for ="FirstName">Account Number</label>
+            <input type="text" class="form-control" id="FirstName" placeholder="required" th:field ="*{accountNumber}" >
+        </div>
+        <div class="form-group">
+         <label for="supplier">Type of Account </label>
+       
+                <select id="supplier" th:field="*{accountType}"  class="form-control">
+                    <option th:each="acctType: ${acctTypes}" th:value="${acctType.getAccountTypeId()}" th:text="${acctType.getAccountTypeName()}"></option>
+                </select>
+    </div>
+        <div class="form-group">
+            <label for ="QuantityinStock" >Balance (in US Dollars and cents)</label>
+            <input type="text" class="form-control" id="QuantityinStock" placeholder="optional" th:field="*{balance}" >
+        </div>
+       
+      
+        <p></p>
+        <a class="btn btn-primary" href="/api/allaccount" >Cancel</a> &nbsp;
+        <button type="submit" class="btn btn-primary">Create Account</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
