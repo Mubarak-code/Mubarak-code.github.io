@@ -43,7 +43,7 @@ public class AccountController {
 		ModelAndView modelandView = new ModelAndView();
 		modelandView.addObject("accounts", allAccounts );
 		modelandView.addObject("net", netLiquid );
-		modelandView.setViewName("account/list");
+		modelandView.setViewName("account/accountlist");
 				
 		return modelandView ;
 	}
@@ -73,11 +73,5 @@ public class AccountController {
 	}
 
 	
-	@GetMapping("/getnetliquidity")
-	public Double netLiquidity () {
-		
-		
-		return accountService.netLiquidity();
-		
-	}
+	
 }

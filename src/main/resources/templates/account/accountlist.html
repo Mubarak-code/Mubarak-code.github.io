@@ -66,16 +66,21 @@
 
                       </td>
                     <td th:text="${(account.accountType.accountTypeName)}"></td>
-                    <td th:text="${(account.balance)}"></td>
+                    <td th:text=" '$' + ${(account.balance)}"></td>
+                   
            
 
                 <tr th:if="${(accounts.size() < 1)}">
 
                     <td colspan="5" style="text-align :center">No Record Available </td>
+
                 </tr>
             </tbody>
 
         </table>
+         <div class="container" > 
+        	<h1 th:text=" ' Net Liquidity = $' + ${net}"> </h1>
+         </div> 
 
     </div>
 
