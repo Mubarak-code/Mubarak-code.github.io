@@ -16,6 +16,7 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long customerId;
+//	@Column(name = "SSN", unique=true)
 	private Long customerNumber;
 	private String firstName;
 	private String middleName;

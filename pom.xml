@@ -55,6 +55,7 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+	<packaging>jar</packaging>
 
 	<build>
 		<plugins>

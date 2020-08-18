@@ -9,7 +9,7 @@ public interface AccountService {
 	List<Account> allAccounts();
 	void newAccount(Account account);
 	Double netLiquidity();
-	Account getAccount(Long id);
+	Account getAccount(Long accountNumber);
 	
 
 }

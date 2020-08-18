@@ -41,4 +41,10 @@ public class CustomerServiceImpl implements CustomerService {
 		return customer;
 	}
 
+	@Override
+	public void deleteCustomer(Long id) {
+		customerRepo.deleteById(id);
+		
+	}
+
 }
